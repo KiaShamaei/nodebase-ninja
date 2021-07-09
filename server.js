@@ -15,8 +15,7 @@ const server = http.createServer ((req,res)=>{
 		case "/about":
 			res.write("<h2>THis is About page...</h2>")
 			break;
-		case "/product" : 
-		res.
+		
 	}
 	res.end()
 })

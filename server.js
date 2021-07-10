@@ -18,13 +18,18 @@ const server = http.createServer((req,res) => {
 			path += "about.html";
 			res.statusCode = 200;
 			break;
+		case "/about-me":
+			res.statusCode = 301;
+			res.setHeader('location' , '/about');
+			res.end();
+			break;
 		case "/product":
 			path += "product.html";
 			res.statusCode = 200;
 			break;
 		default:
 			path += "404.html";
-			res.statusCode= 404;
+			res.statusCode = 404;
 			res.statusMessage = "there isnt real page"
 
 	}
@@ -33,7 +38,7 @@ const server = http.createServer((req,res) => {
 			console.log(err)
 			res.end();
 		} else {
-			
+
 			res.write(data)
 			res.end()
 		}

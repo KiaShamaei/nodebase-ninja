@@ -25,6 +25,7 @@ const server = http.createServer((req,res) => {
 		default:
 			path += "404.html";
 			res.statusCode= 404;
+			res.statusMessage = "there isnt real page"
 
 	}
 	fs.readFile(path,(err,data) => {

@@ -2,10 +2,20 @@
 
 const fs = require("fs");
 const http = require('http');
+const _ = require('lodash')
 
 
 const server = http.createServer((req,res) => {
 	res.setHeader('Content-Type','text/html')
+	//lodash 
+	const num = _.random(0, 20);
+	const greeting = _.once( () =>{
+		console.log("hello must run just once ...")
+
+	})
+	greeting()
+	greeting()
+	console.log(num)
 	let url = req.url;
 	let path = "./views/"
 	//this is router switch	

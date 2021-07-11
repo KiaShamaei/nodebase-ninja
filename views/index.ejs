@@ -14,6 +14,18 @@
 	<h2>
 		This is from index part ... |  <%= title %>
 	</h2>
+	<h1>All Blogs --------------------</h1>
+	<% if (blogs.length > 0) { %>
+		<% blogs.forEach( blog => { %>
+			<h4><%= blog.title %></h4>
+			<p> <%= blog.snnipts %> </p>
+		
+		<% }) %>
+		
+	<% } else { %>
+		<p>there isnt any blog...</p>
+	<% }%>
+
 	
 </body>
 </html>

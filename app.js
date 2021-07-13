@@ -1,5 +1,5 @@
 const express = require('express');
-
+const morgan = require('morgan')
 // express app
 const app = express();
 
@@ -10,6 +10,24 @@ app.listen(3000);
 app.set('view engine', 'ejs');
 // app.set('views', 'myviews');
 
+//set logger middleware its fire for every request ...
+
+// app.use((req,res,next)=>{
+// 	console.log("new reaquest get made!");
+// 	console.log("path " , req.path)
+// 	console.log("host" , req.hostname)
+// 	console.log("methode" , req.method)
+// 	next()
+// })
+// app.use ((req,res,next)=>{
+// 	console.log("this is from other middleware ")
+// 	next();
+// })
+
+//add morgan to work as logger ----------------
+
+app.use(morgan("tiny"))
+app.use(express.static('public'))
 app.get('/', (req, res) => {
   const blogs = [
     {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},

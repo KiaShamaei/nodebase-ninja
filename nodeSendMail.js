@@ -1,16 +1,19 @@
 var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  // service: 'https://businessmoshaver.com',
+  host: "mail.businessmoshaver.com",
+  port: 465,
+  secure: true, // true for 465, false for other ports
   auth: {
-    user: 'kiarash.shamaii@gmail.com',
-    pass: 'XXXX'
+    user: 'admin@businessmoshaver.com',
+    pass: 'kia852147154'
   }
 });
 
 var mailOptions = {
-  from: 'kiarash.shamaii@gmail.com',
-  to: 'skiarash.shamaii.ks@gmail.com',
+  from: 'admin@businessmoshaver.com',
+  to: 'kiarash.shamaii@gmail.com',
   subject: 'Sending Email using Node.js',
   text: `Hi Smartherd, thank you for your nice Node.js tutorials.
           I will donate 50$ for this course. Please send me payment options.`

@@ -38,48 +38,43 @@ app.set('view engine', 'ejs');
 
 app.use(morgan("tiny"))
 app.use(express.static('public'))
-//add sandbox and mongo routes
-app.get("/add-get" , (req,res)=>{
-  const blog = new Blog({
-    title : "new blog3",
-    snippet : "about my new blog",
-    body: "this first page"
-  }) 
-  blog.save()
-  .then((result)=>{
-    res.send(result)
+// //add sandbox and mongo routes
+// app.get("/add-get" , (req,res)=>{
+//   const blog = new Blog({
+//     title : "new blog3",
+//     snippet : "about my new blog",
+//     body: "this first page"
+//   }) 
+//   blog.save()
+//   .then((result)=>{
+//     res.send(result)
 
-  }).catch(err=>{
-    console.log(err)
-  })
-})
-app.get("/all-blogs" , (req,res)=>{
-  Blog.find()
-  .then((result)=>{
-    res.send(result)
-  })
-  .catch(err =>{
-    console.log(err)
-  })
+//   }).catch(err=>{
+//     console.log(err)
+//   })
+// })
+// app.get("/all-blogs" , (req,res)=>{
+//   Blog.find()
+//   .then((result)=>{
+//     res.send(result)
+//   })
+//   .catch(err =>{
+//     console.log(err)
+//   })
  
-})
-app.get('/single-blog' , (req, res)=>{
-  Blog.findById ("60f281579ab1883620d425d3")
-  .then(result =>{
-    res.send(result)
-  })
-  .catch(err =>{
-    console.log(err)
-  })
+// })
+// app.get('/single-blog' , (req, res)=>{
+//   Blog.findById ("60f281579ab1883620d425d3")
+//   .then(result =>{
+//     res.send(result)
+//   })
+//   .catch(err =>{
+//     console.log(err)
+//   })
  
-})
+// })
 app.get('/', (req, res) => {
-  const blogs = [
-    {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-    {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-    {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-  ];
-  res.render('index', { title: 'Home', blogs });
+res.redirect('/blogs')
 });
 
 app.get('/about', (req, res) => {

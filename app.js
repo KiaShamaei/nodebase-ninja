@@ -4,7 +4,7 @@ const mongoose =require('mongoose');
 const Blog = require('./models/blog')
 // express app
 const app = express();
-mongoose.connect("mongodb://127.0.0.1:27017",{useNewUrlParser : true , useUnifiedTopology : true})
+mongoose.connect("mongodb://127.0.0.1:27017/test",{useNewUrlParser : true , useUnifiedTopology : true})
 .then((result)=>{
   console.log("connected")
   //this make sense to be listen after connection establish ... 
@@ -41,16 +41,37 @@ app.use(express.static('public'))
 //add sandbox and mongo routes
 app.get("/add-get" , (req,res)=>{
   const blog = new Blog({
-    title : "new blog",
+    title : "new blog3",
     snippet : "about my new blog",
     body: "this first page"
   }) 
-  blog.save().then((result)=>{
+  blog.save()
+  .then((result)=>{
     res.send(result)
 
   }).catch(err=>{
     console.log(err)
   })
+})
+app.get("/all-blogs" , (req,res)=>{
+  Blog.find()
+  .then((result)=>{
+    res.send(result)
+  })
+  .catch(err =>{
+    console.log(err)
+  })
+ 
+})
+app.get('/single-blog' , (req, res)=>{
+  Blog.findById ("60f281579ab1883620d425d3")
+  .then(result =>{
+    res.send(result)
+  })
+  .catch(err =>{
+    console.log(err)
+  })
+ 
 })
 app.get('/', (req, res) => {
   const blogs = [

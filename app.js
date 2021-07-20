@@ -112,7 +112,7 @@ app.get("/blogs/:id" , (req, res)=>{
   const id = req.params.id
   Blog.findById(id)
   .then(result =>{
-    res.render("details" , {title :"Details",blog : result})
+    res.render("details" , {title :"Blog Details",blog : result})
   })
   .catch(err => {
     console.log(err)

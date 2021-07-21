@@ -82,7 +82,7 @@ app.get('/', (req, res) => {
 res.redirect('/blogs')
 });
 //add route middelware ------------------
-app.use(blogRoutes)
+app.use('/blogs',blogRoutes)
 
 app.get('/about', (req, res) => {
   res.render('about', { title: 'About' });

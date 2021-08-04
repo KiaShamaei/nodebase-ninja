@@ -42,6 +42,7 @@ app.set('view engine', 'ejs');
 
 app.use(morgan("tiny"))
 app.use(express.static('public'))
+//to retrive param value from url
 app.use(express.urlencoded({extended : true}))
 // //add sandbox and mongo routes
 // app.get("/add-get" , (req,res)=>{

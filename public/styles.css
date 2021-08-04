@@ -102,3 +102,15 @@ textarea{
   font-size: 1.2em;
   cursor: pointer;
 }
+.blogs a {
+  display: block;
+  margin:40px 0 ;
+  padding-left: 30px;
+  border-left: 6px solid red;
+
+}
+
+.blogs a:hover{
+  color: white;
+  background-color: crimson;
+}
